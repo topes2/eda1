@@ -75,16 +75,24 @@ void MakeEmptyQueue( Queue Q ){
 
 
 void Enqueue( ElementType X, Queue Q ){
-    Q->Array[Q->Front+1] = X;
+    Q->Array[Q->Rear+1] = X;
 }
 
 
 ElementType Front( Queue Q ){
-    Q->Array[Q->Front];
+    int i = 0;
+    while (i <= Q->Capacity){
+        if (Q->Array[i] != NULL){
+            Q->Front = Q->Array[i];
+            break;
+        }else
+        i++;        
+    }
 }
 
 
 ElementType Dequeue( Queue Q ){
+    Q->Front = Q->Array[Q->Front + 1];
 }
 
 int main(){
